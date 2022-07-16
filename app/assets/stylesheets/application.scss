@@ -2,6 +2,7 @@
 
 body, html{
   height: 100%;
+  background-color: lightgray;
 }
 
 .navbar{
@@ -27,7 +28,6 @@ body, html{
 
 #page-content{
   flex: 1 0 auto;
-  background-color: lightgray;
 }
 
 #home-container {
@@ -37,4 +37,8 @@ body, html{
 
 #sticky-footer {
   flex-shrink: none;
+}
+
+.error-msg{
+  list-style-type: none;
 }
