@@ -1,27 +1,5 @@
 <h1>Edit Article</h1>
 
-<% if @article.errors.any? %>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-<!-- 
-Scope: model that will be used for submit form
-URL: path when form is submitted. Formula: [route_name]_path
-Local is true: not using AJAX for submit method (default: AJAX)
- -->
-<%= form_with model: @article, local: true, data: {turbo: false} do |f| %>
-  <div>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <br />
-  <div>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <br />
-  <%= f.submit %>
-<% end %>
+<%= render 'errors' %>
+
+<%= render 'form' %>

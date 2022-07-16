@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :destroy, :edit, :update]
+
   def index
     # Create instance variable so it can be accessed into ERB format view
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     # Strong parameters
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.new(article_params)
     if @article.save
       flash[:notice] = "Article created successfully!"
       redirect_to article_path(@article)
@@ -29,8 +30,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
-    if @article.update(params.require(:article).permit(:title, :description))
+    if @article.update(article_params)
       flash[:notice] = "Article updated successfully!"
       redirect_to article_path(@article)
     else
@@ -39,9 +39,17 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     flash[:notice] = "Article successfully deleted!"
     redirect_to articles_path
   end
+
+  private
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :description)
+    end
 end
