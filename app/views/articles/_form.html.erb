@@ -1,13 +1,22 @@
 <%= form_with model: @article, local: true, data: {turbo: false} do |f| %>
-  <div>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="row">
+    <%= render 'errors' %>
+    <div class="col-12">
+      <div class="mb-3 row">
+        <%= f.label :title, class: "col-sm-1 col-form-label" %><br />
+        <div class="col-sm-11">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :description, class: "col-sm-1 col-form-label" %><br />
+        <div class="col-sm-11">
+          <%= f.text_area :description, class: "form-control", rows: 4 %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.submit class: "btn btn-success" %>
+      </div>
+    </div>
   </div>
-  <br />
-  <div>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <br />
-  <%= f.submit %>
 <% end %>
