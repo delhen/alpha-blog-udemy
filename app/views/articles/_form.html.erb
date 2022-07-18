@@ -1,6 +1,6 @@
 <%= form_with model: @article, local: true, data: {turbo: false} do |f| %>
   <div class="row">
-    <%= render 'errors' %>
+    <%= render 'shared/errors', obj: @article %>
     <div class="col-12">
       <div class="mb-3 row">
         <%= f.label :title, class: "col-sm-1 col-form-label" %><br />
