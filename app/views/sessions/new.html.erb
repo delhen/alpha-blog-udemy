@@ -1,0 +1,24 @@
+<div class="container mt-4 d-flex flex-column p-4 bg-info text-white rounded">
+  <h1 class="text-center">Login</h1>
+  <%= form_with scope: :session, url: login_path, local: true, data: {turbo: false} do |f| %>
+  <div class="row">
+    <div class="col-12">
+      <div class="mb-3 row">
+        <%= f.label :email, class: "col-sm-1 col-form-label" %><br />
+        <div class="col-sm-11">
+          <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :password, class: "col-sm-1 col-form-label" %><br />
+        <div class="col-sm-11">
+          <%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Login", class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
