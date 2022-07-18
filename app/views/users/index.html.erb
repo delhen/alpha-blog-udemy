@@ -15,8 +15,17 @@
             <%= link_to gravatar_for(user), user %>
             <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
             <%= link_to 'View', user, class: "btn btn-primary" %>
-            <% if logged_in? and user == current_user %>
-              <%= link_to 'Edit', edit_user_path(user), class: "btn btn-info text-white" %>
+            <% if logged_in? %>
+              <% if user == current_user %>
+                <%= link_to 'Edit', edit_user_path(user), class: "btn btn-info text-white" %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete', user_path(user), class: "btn btn-danger text-white", data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure to delete the user?"
+                } %>
+              <% end %>
+              
             <% end %>
           </div>
           <div class="card-footer text-muted">
