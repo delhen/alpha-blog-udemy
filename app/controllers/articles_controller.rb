@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :destroy, :edit, :update]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :delete]
 
   def index
     # Create instance variable so it can be accessed into ERB format view
@@ -52,5 +54,12 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+      if @article.user != current_user
+        flash[:alert] = "You can only edit and delete your own article!"
+        redirect_to user_path(current_user)
+      end
     end
 end
