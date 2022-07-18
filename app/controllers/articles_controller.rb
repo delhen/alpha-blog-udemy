@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   def create
     # Strong parameters
     @article = Article.new(article_params)
-    @article.user = User.first # Temporary
+    @article.user = current_user
     if @article.save
       flash[:notice] = "Article created successfully!"
       redirect_to article_path(@article)
