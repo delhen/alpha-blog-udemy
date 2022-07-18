@@ -5,23 +5,23 @@
       <div class="mb-3 row">
         <%= f.label :username, class: "col-sm-1 col-form-label" %><br />
         <div class="col-sm-11">
-          <%= f.text_field :username, class: "form-control" %>
+          <%= f.text_field :username, class: "form-control", placeholder: "Enter your username" %>
         </div>
       </div>
       <div class="mb-3 row">
         <%= f.label :email, class: "col-sm-1 col-form-label" %><br />
         <div class="col-sm-11">
-          <%= f.email_field :email, class: "form-control" %>
+          <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
         </div>
       </div>
       <div class="mb-3 row">
         <%= f.label :password, class: "col-sm-1 col-form-label" %><br />
         <div class="col-sm-11">
-          <%= f.password_field :password, class: "form-control" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <%= f.submit class: "btn btn-success" %>
+        <%= f.submit "Sign Up", class: "btn btn-success" %>
       </div>
     </div>
   </div>
