@@ -3,7 +3,7 @@
   <div class="col-8 mx-auto">
     <div class="card text-center my-2 shadow-sm">
       <div class="card-header">
-        Delian Hendardi
+        <%= @article.user.username if @article.user %>
       </div>
       <div class="card-body">
         <p class="card-text"><%= truncate(@article.description, length: 100) %></p>
