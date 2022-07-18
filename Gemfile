@@ -51,6 +51,9 @@ gem "sassc-rails"
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'jquery-rails'
 
+# Pagination
+gem 'will_paginate', '~> 3.3'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

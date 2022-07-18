@@ -3,6 +3,11 @@
   <div class="d-flex justify-content-center my-2">
     <%= link_to 'Create new article', new_article_path, class: "btn btn-success justify-content-center" %>
   </div>
-
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
   <%= render 'articles/article' %>
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
 </div>
