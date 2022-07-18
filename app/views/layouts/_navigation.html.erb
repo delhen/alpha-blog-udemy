@@ -20,6 +20,12 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to "Logout", logout_path, class: "dropdown-item", data: { turbo_method: :delete } %></li>
+              <hr />
+              <li><%= link_to "Delete account", user_path(current_user), class: "dropdown-item text-danger", 
+                      data: { 
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure to want to delete the account?"
+                      } %></li>
             </ul>
           </li>
         <% else %>
